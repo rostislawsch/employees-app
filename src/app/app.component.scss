@@ -1,0 +1,8 @@
+.delete-icon {
+    color: red;
+    font-size: 2rem;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}

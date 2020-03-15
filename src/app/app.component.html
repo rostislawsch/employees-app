@@ -1,11 +1,1 @@
-<h1>Employees Manager</h1>
-
-<p *ngFor="let employee of allEmployees">{{employee.firstname}} {{employee.lastname}}&nbsp;<span class="delete-icon" (click)="deleteEmployee(employee)">&times;</span></p>
-
-<input type="text" [(ngModel)]="newEmployeeFirstname" placeholder="First name...">
-<input type="text" [(ngModel)]="newEmployeeLastname" placeholder="Last Nname...">
-<input type="text" [(ngModel)]="newEmployeeJobtitle" placeholder="Jobtitle...">
-<input type="text" [(ngModel)]="newEmployeeDepartment" placeholder="Department...">
-<button (click)="createEmployee()">Create Employee</button>
-
-<button (click)="updateEmployee()">Update Employee</button>
+<router-outlet></router-outlet>

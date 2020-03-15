@@ -1,0 +1,38 @@
+<h1>Employees Manager</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Job title</th>
+        <th scope="col">Department</th>
+        <th scope="col">Commands</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of allEmployees">
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.firstname}}</td>
+        <td>{{employee.lastname}}</td>
+        <td>{{employee.jobtitle}}</td>
+        <td>{{employee.department}}</td>
+        <td>
+            <button class="btn btn-primary" (click)="updateEmployee(employee)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteEmployee(employee)">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="create-employee">
+    <h3>Create Employee</h3>
+    <form  [formGroup]="employeeForm" (ngSubmit)="createEmployee(employeeForm.value)" >
+        <input type="text" formControlName="firstname" placeholder="First name..." class="form-control">
+        <input type="text" formControlName="lastname" placeholder="Last Name..." class="form-control">
+        <input type="text" formControlName="jobtitle" placeholder="Jobtitle..." class="form-control">
+        <input type="text" formControlName="department" placeholder="Department..." class="form-control">
+        <button class="btn btn-primary">Create Employee</button>
+    </form>
+</div>

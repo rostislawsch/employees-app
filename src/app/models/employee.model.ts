@@ -1,8 +1,8 @@
 export class Employee {
-    id: number;
+    id?: number;
     firstname: string;
     lastname: string;
     jobtitle: string;
     department: string;
-    image: Blob;
+    image?: string
 }

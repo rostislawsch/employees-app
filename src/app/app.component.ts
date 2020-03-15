@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { error } from 'protractor';
-
+import {Employee} from './models/employee.model';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +18,10 @@ export class AppComponent implements OnInit {
   newEmployeeLastname: string;
   newEmployeeJobtitle: string;
   newEmployeeDepartment: string;
+  newEmployee;
   
   ngOnInit() {
-  this.getAllEmployees()
+  this.getAllEmployees();
   }
 
   getAllEmployees() {
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  deleteEmployee(employee: { id: string; }){
+  deleteEmployee(employee: Employee){
     const url = environment.apiEndpoint + 'employees/' + employee.id;
     this.http.delete(url, {responseType: 'text'}).subscribe(result => {
       console.log('Employee deleted');
@@ -55,5 +55,15 @@ export class AppComponent implements OnInit {
       // this.allEmployees = [];
       this.getAllEmployees();
     }, error => console.log(error))
+  }
+
+  updateEmployee() {
+    const url = environment.apiEndpoint + 'employees/' + 42
+    this.http.put(url,  {
+      firstname: this.newEmployeeFirstname,
+      lastname: this.newEmployeeLastname,
+      jobtitle: this.newEmployeeJobtitle,
+      department: this.newEmployeeDepartment
+    }, {responseType: 'text'}).subscribe(result => console.log(result))
   }
 }

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { ShowEmployeesComponent } from './show-employees/show-employees.component';
 const appRoutes: Routes = [
-  { path: 'edit', component: EditEmployeeComponent },
+  { path: 'edit/:id', component: EditEmployeeComponent },
   { path: '',
     redirectTo: '/',
     pathMatch: 'full'

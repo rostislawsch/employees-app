@@ -18,6 +18,11 @@ export class EmployeesService {
     const url = environment.apiEndpoint + 'employees/'
     return this.http.get(url)
   }
+  
+  getSingleEmployee(id: string) {
+    const url = environment.apiEndpoint + 'employees/employee/' + id
+    return this.http.get(url)
+  }
 
   deleteEmployee(employee: Employee){
     const url = environment.apiEndpoint + 'employees/' + employee.id;
@@ -32,5 +37,10 @@ export class EmployeesService {
       jobtitle: employee.jobtitle,
       department: employee.department
     })
+  }
+
+  updateEmployee(employee) {
+    const url = environment.apiEndpoint + 'employees/employee/' + employee.id
+    return this.http.put(url, employee, {responseType: 'text'})
   }
 }

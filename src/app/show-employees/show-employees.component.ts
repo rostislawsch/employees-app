@@ -62,14 +62,7 @@ export class ShowEmployeesComponent implements OnInit {
   }
 
   updateEmployee(employee) {
-    this.router.navigate(['/edit'])
-    // const url = environment.apiEndpoint + 'employees/' + 42
-    // this.http.put(url,  {
-    //   firstname: this.newEmployeeFirstname,
-    //   lastname: this.newEmployeeLastname,
-    //   jobtitle: this.newEmployeeJobtitle,
-    //   department: this.newEmployeeDepartment
-    // }, {responseType: 'text'}).subscribe(result => console.log(result))
+    this.router.navigate(['/edit/' + employee.id]);
   }
 
   switchUpdating() {
